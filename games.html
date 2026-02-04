@@ -309,7 +309,6 @@
 				gamesOnPage.forEach((game, index) => {
 					const gameLink = document.createElement('a');
 					gameLink.href = `/game-detail.html?id=${startIndex + index}`;
-					gameLink.target = '_blank';
 					gameLink.className = 'game-card-link';
 
 					const gameCard = document.createElement('div');
