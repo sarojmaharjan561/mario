@@ -1,0 +1,377 @@
+<!doctype html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="/css/styles.css" />
+		<title>Games - Mario Club</title>
+	</head>
+	<body>
+		<header>
+			<h1><a href="/">Mario Club</a></h1>
+		</header>
+
+		<nav class="main-nav">
+			<ul>
+				<li><a href="/join.html" class="join">Join the club</a></li>
+				<li><a href="/news.html">News</a></li>
+				<li><a href="/games.html">Games</a></li>
+				<li><a href="/contact.html">Contact</a></li>
+			</ul>
+		</nav>
+
+		<main>
+			<article>
+				<h2>Mario Games</h2>
+				<p>
+					Explore our collection of iconic Mario games throughout the years. From classic
+					platformers to innovative adventures, discover the games that made Mario a gaming legend.
+				</p>
+			</article>
+
+			<section class="games-container">
+				<div class="games-grid" id="gamesGrid">
+					<!-- Games will be populated here by JavaScript -->
+				</div>
+
+				<div class="pagination" id="pagination">
+					<!-- Pagination buttons will be generated here by JavaScript -->
+				</div>
+			</section>
+		</main>
+
+		<footer>
+			<p class="copyright">Copyright 2026 Mario Club</p>
+		</footer>
+
+		<script>
+			const allGames = [
+				{
+					name: 'Super Mario Bros',
+					year: '1985',
+					image: '/img/mario-1.jpeg',
+					description:
+						'The game that started it all! Jump on enemies and collect coins in this classic platformer.',
+				},
+				{
+					name: 'Super Mario Bros 3',
+					year: '1988',
+					image: '/img/mario-2.jpeg',
+					description:
+						'Mario gains new power-ups and abilities in this enhanced adventure with creative level design.',
+				},
+				{
+					name: 'Super Mario World',
+					year: '1990',
+					image: '/img/mario-3.jpeg',
+					description:
+						'Ride on Yoshi and explore colorful worlds filled with secrets and challenging platforming.',
+				},
+				{
+					name: 'Super Mario 64',
+					year: '1996',
+					image: '/img/mario-2.jpeg',
+					description:
+						'The first 3D Mario game revolutionized platform gaming with innovative camera controls and exploration.',
+				},
+				{
+					name: 'Super Mario Galaxy',
+					year: '2007',
+					image: '/img/mario-3.jpeg',
+					description:
+						'Defy gravity as Mario travels through space collecting stars on spherical planets.',
+				},
+				{
+					name: 'Super Mario Odyssey',
+					year: '2017',
+					image: '/img/mario-1.jpeg',
+					description:
+						'Use Cappy to capture enemies and objects in this imaginative 3D platforming adventure.',
+				},
+				{
+					name: 'New Super Mario Bros',
+					year: '2006',
+					image: '/img/mario-2.jpeg',
+					description:
+						'Return to 2D platforming with updated graphics and new power-ups in this modern classic.',
+				},
+				{
+					name: 'Mario Kart 8',
+					year: '2014',
+					image: '/img/mario-3.jpeg',
+					description:
+						'Race with Mario and friends on imaginative tracks with dynamic weather and creative shortcuts.',
+				},
+				{
+					name: 'Paper Mario',
+					year: '2000',
+					image: '/img/mario-1.jpeg',
+					description:
+						'Fold into action in this unique RPG where Mario is literally made of paper.',
+				},
+				{
+					name: 'Mario Party Superstars',
+					year: '2021',
+					image: '/img/mario-2.jpeg',
+					description: 'Play mini-games with friends and compete for stars on the game board.',
+				},
+				{
+					name: 'Super Mario Maker',
+					year: '2015',
+					image: '/img/mario-3.jpeg',
+					description:
+						'Create your own Mario levels using intuitive tools and share them with the community.',
+				},
+				{
+					name: "Luigi's Mansion",
+					year: '2001',
+					image: '/img/mario-1.jpeg',
+					description:
+						'Help Luigi vacuum up ghosts and rescue Mario in this spooky adventure game.',
+				},
+				{
+					name: 'Super Mario Bros 2',
+					year: '1988',
+					image: '/img/mario-2.jpeg',
+					description:
+						'Pull vegetables and toss enemies in this unique platformer with different mechanics.',
+				},
+				{
+					name: 'Super Mario RPG',
+					year: '1996',
+					image: '/img/mario-3.jpeg',
+					description:
+						'Join Mario in an epic RPG adventure with turn-based combat and engaging story.',
+				},
+				{
+					name: 'Mario & Luigi: Superstar Saga',
+					year: '2003',
+					image: '/img/mario-1.jpeg',
+					description:
+						'Control Mario and Luigi together in this action-packed RPG adventure across the Mushroom Kingdom.',
+				},
+				{
+					name: 'New Super Mario Bros Wii',
+					year: '2009',
+					image: '/img/mario-2.jpeg',
+					description:
+						'Play solo or with up to 3 friends in this cooperative 2D platforming adventure.',
+				},
+				{
+					name: 'Super Mario 3D Land',
+					year: '2011',
+					image: '/img/mario-3.jpeg',
+					description:
+						'Experience Mario in a new 3D perspective with creative level design and power-ups.',
+				},
+				{
+					name: 'New Super Mario Bros U',
+					year: '2012',
+					image: '/img/mario-1.jpeg',
+					description:
+						'The newest 2D Mario adventure with challenging levels and fun multiplayer modes.',
+				},
+				{
+					name: 'Super Mario 3D World',
+					year: '2013',
+					image: '/img/mario-2.jpeg',
+					description:
+						'Explore vibrant 3D worlds with Mario, Luigi, Peach, and Toad in this colorful adventure.',
+				},
+				{
+					name: 'Mario Kart 7',
+					year: '2011',
+					image: '/img/mario-3.jpeg',
+					description:
+						'Race on track with karts, gliders, and underwater capabilities in this portable racer.',
+				},
+				{
+					name: 'Mario Party 10',
+					year: '2015',
+					image: '/img/mario-1.jpeg',
+					description:
+						'Play exciting mini-games and race around the board with friends and family.',
+				},
+				{
+					name: 'Mario + Rabbids Kingdom Battle',
+					year: '2017',
+					image: '/img/mario-2.jpeg',
+					description: 'Team up with crazy Rabbids in this strategic turn-based action game.',
+				},
+				{
+					name: "Luigi's Mansion 3",
+					year: '2019',
+					image: '/img/mario-3.jpeg',
+					description: 'Luigi returns with new vacuum powers to rescue Mario from a haunted hotel.',
+				},
+				{
+					name: 'Super Mario 3D All-Stars',
+					year: '2020',
+					image: '/img/mario-1.jpeg',
+					description:
+						'Relive three classic 3D Mario adventures with enhanced graphics and features.',
+				},
+				{
+					name: "Super Mario 3D World + Bowser's Fury",
+					year: '2021',
+					image: '/img/mario-2.jpeg',
+					description:
+						'The enhanced Wii U classic with a brand new adventure featuring a giant angry Bowser.',
+				},
+				{
+					name: 'Super Mario Bros Wonder',
+					year: '2023',
+					image: '/img/mario-3.jpeg',
+					description:
+						'Experience Mario like never before with magical Wonder effects that transform levels.',
+				},
+				{
+					name: 'Mario Kart: Double Dash',
+					year: '2003',
+					image: '/img/mario-1.jpeg',
+					description:
+						'Race with two characters per kart in this GameCube classic with creative battle modes.',
+				},
+				{
+					name: 'Mario Kart Wii',
+					year: '2008',
+					image: '/img/mario-2.jpeg',
+					description:
+						'Drive with motion controls or traditional controllers in this popular racing game.',
+				},
+				{
+					name: 'Paper Mario: The Thousand-Year Door',
+					year: '2004',
+					image: '/img/mario-3.jpeg',
+					description:
+						'Paper Mario returns in an RPG adventure with witty dialogue and engaging combat.',
+				},
+				{
+					name: 'Mario Party 9',
+					year: '2012',
+					image: '/img/mario-1.jpeg',
+					description:
+						'Compete in mini-games with friends in this fun-filled party game experience.',
+				},
+				{
+					name: 'Super Mario Run',
+					year: '2016',
+					image: '/img/mario-2.jpeg',
+					description:
+						'Jump and dash through levels in this mobile platformer designed for one-handed play.',
+				},
+				{
+					name: 'Dr. Mario',
+					year: '1990',
+					image: '/img/mario-3.jpeg',
+					description:
+						'Mario becomes a doctor in this addictive puzzle game about matching colored viruses.',
+				},
+				{
+					name: 'Mario Golf World Tour',
+					year: '2014',
+					image: '/img/mario-1.jpeg',
+					description: 'Play golf with Mario and friends on imaginative courses with power-ups.',
+				},
+				{
+					name: 'Mario Strikers: Battle League',
+					year: '2022',
+					image: '/img/mario-2.jpeg',
+					description:
+						'Experience soccer with a competitive twist featuring power-ups and chaos on the field.',
+				},
+				{
+					name: 'Super Smash Bros Mario Fighters',
+					year: '2018',
+					image: '/img/mario-3.jpeg',
+					description:
+						'Mario joins the ultimate fighting game roster in this epic crossover battle.',
+				},
+				{
+					name: 'Mario Kart Live: Home Circuit',
+					year: '2020',
+					image: '/img/mario-1.jpeg',
+					description:
+						'Physical RC kart that races around your home while playing on your TV screen.',
+				},
+			];
+
+			const gamesPerPage = 6;
+			let currentPage = 1;
+
+			function displayGames(page) {
+				const gamesGrid = document.getElementById('gamesGrid');
+				gamesGrid.innerHTML = '';
+
+				const startIndex = (page - 1) * gamesPerPage;
+				const endIndex = startIndex + gamesPerPage;
+				const gamesOnPage = allGames.slice(startIndex, endIndex);
+
+				gamesOnPage.forEach((game, index) => {
+					const gameLink = document.createElement('a');
+					gameLink.href = `/game-detail.html?id=${startIndex + index}`;
+					gameLink.target = '_blank';
+					gameLink.className = 'game-card-link';
+
+					const gameCard = document.createElement('div');
+					gameCard.className = 'game-card';
+					gameCard.innerHTML = `
+						<img src="${game.image}" alt="${game.name}" class="game-image" />
+						<h3>${game.name}</h3>
+						<p class="game-year">${game.year}</p>
+						<p class="game-description">${game.description}</p>
+					`;
+
+					gameLink.appendChild(gameCard);
+					gamesGrid.appendChild(gameLink);
+				});
+
+				displayPagination();
+			}
+
+			function displayPagination() {
+				const pagination = document.getElementById('pagination');
+				pagination.innerHTML = '';
+
+				const totalPages = Math.ceil(allGames.length / gamesPerPage);
+
+				const prevBtn = document.createElement('button');
+				prevBtn.textContent = '← Previous';
+				prevBtn.className = 'pagination-btn';
+				prevBtn.disabled = currentPage === 1;
+				prevBtn.onclick = () => {
+					if (currentPage > 1) {
+						currentPage--;
+						displayGames(currentPage);
+					}
+				};
+				pagination.appendChild(prevBtn);
+
+				for (let i = 1; i <= totalPages; i++) {
+					const pageBtn = document.createElement('button');
+					pageBtn.textContent = i;
+					pageBtn.className = 'pagination-btn' + (i === currentPage ? ' active' : '');
+					pageBtn.onclick = () => {
+						currentPage = i;
+						displayGames(currentPage);
+					};
+					pagination.appendChild(pageBtn);
+				}
+
+				const nextBtn = document.createElement('button');
+				nextBtn.textContent = 'Next →';
+				nextBtn.className = 'pagination-btn';
+				nextBtn.disabled = currentPage === totalPages;
+				nextBtn.onclick = () => {
+					if (currentPage < totalPages) {
+						currentPage++;
+						displayGames(currentPage);
+					}
+				};
+				pagination.appendChild(nextBtn);
+			}
+
+			// Display games on page load
+			displayGames(currentPage);
+		</script>
+	</body>
+</html>
